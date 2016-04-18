@@ -41,9 +41,16 @@ public class PessoaFisica implements Serializable,EntidadeBase {
     
     @Column(name = "DATA_NASC", nullable=false)
     @Temporal(TemporalType.DATE)
+    
     private Date dataNasc;
+    
+    @Column(nullable = false)
     private String cpf;
+    
+    @Column(nullable = false)
     private String nome;
+    
+    @Column(nullable = false)
     private char sexo;
     
     @OneToOne(cascade = CascadeType.ALL)

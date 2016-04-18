@@ -6,10 +6,14 @@
 package br.com.combat.entity;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 
@@ -26,15 +30,30 @@ public class Pessoa implements Serializable,EntidadeBase {
     @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "PES_SEQ")
     private Long id;
     
+    @Column(nullable = false)
     private int numero;
+    @Column(nullable = false)
     private String cidade;
+    @Column(nullable = false)
     private String estado;
+    @Column(nullable = false)
     private String rua;
+    @Column(nullable = false)
     private String bairro;
+    @Column(nullable = false)
     private String cep;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String senha;
-
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    private List<Telefone> telefones;
+    
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    private List<Pedido> pedidos;
+    
     @Override
     public Long getId() {
         return id;
@@ -106,6 +125,14 @@ public class Pessoa implements Serializable,EntidadeBase {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
     }
     
     
