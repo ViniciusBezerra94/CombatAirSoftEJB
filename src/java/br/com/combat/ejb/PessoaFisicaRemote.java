@@ -5,10 +5,16 @@
  */
 package br.com.combat.ejb;
 
+import br.com.combat.entity.PessoaFisica;
+import javax.ejb.Remote;
+
 /**
  *
  * @author vinicius
  */
+@Remote
 public interface PessoaFisicaRemote {
-    
+    public PessoaFisica salvar(PessoaFisica pf) throws Exception;
+    public PessoaFisica consultarPorId(Long id);
+    public void remover(Long id);
 }
