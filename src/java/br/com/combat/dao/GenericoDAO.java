@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
  *
  * @author vinicius
  * @param <T>
+ * 
  */
 public class GenericoDAO<T extends EntidadeBase> {
 

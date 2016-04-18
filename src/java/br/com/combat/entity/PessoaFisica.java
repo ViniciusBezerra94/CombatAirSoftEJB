@@ -7,6 +7,7 @@ package br.com.combat.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,11 +29,12 @@ import javax.persistence.TemporalType;
 @NamedQueries({
     @NamedQuery(name= "pessoaFisica.buscarPorCPF" ,query="select pf from PessoaFisica pf where pf.cpf like :numCPF")
 })
+@SequenceGenerator(name = "PF_SEQ", sequenceName="PF_SEQ", allocationSize = 1, initialValue = 1)
 @Entity
 @Table(name = "PESSOA_FISICA")
-@SequenceGenerator(name = "PF_SEQ", sequenceName="PF_SEQ", allocationSize = 1, initialValue = 1)
+
 public class PessoaFisica implements Serializable,EntidadeBase {
-    private static final long serialVersionUID = 6L;
+    private static final long serialVersionUID = 12231L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE , generator="PF_SEQ")
     private Long id;
@@ -44,7 +46,7 @@ public class PessoaFisica implements Serializable,EntidadeBase {
     private String nome;
     private char sexo;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Pessoa pessoa;
 
     @Override

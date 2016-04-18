@@ -12,14 +12,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+
 /**
  *
  * @author vinicius
  */
 @Entity
 @SequenceGenerator(name = "PES_SEQ" , sequenceName = "PES_SEQ", initialValue = 1, allocationSize = 1)
+
 public class Pessoa implements Serializable,EntidadeBase {
-    private static final long serialVersionUID = 5L;
+    private static final long serialVersionUID = 546546L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "PES_SEQ")
     private Long id;

@@ -29,7 +29,7 @@ import javax.persistence.Table;
 @Table(name = "PESSOA_JURIDICA")
 @SequenceGenerator(name = "PJ_SEQ", sequenceName = "PJ_SEQ", allocationSize=1 , initialValue = 1)
 public class PessoaJuridica implements Serializable,EntidadeBase {
-    private static final long serialVersionUID = 7L;
+    private static final long serialVersionUID = 56456L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PJ_SEQ")
     private Long id;
