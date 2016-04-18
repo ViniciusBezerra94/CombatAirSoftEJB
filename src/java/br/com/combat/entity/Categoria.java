@@ -6,10 +6,12 @@
 package br.com.combat.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 /**
@@ -26,7 +28,8 @@ public class Categoria implements Serializable,EntidadeBase {
     
     private String nome;
     
-    
+    @OneToMany
+    private List<Produto> produtos;
    
 
     @Override
@@ -45,7 +48,15 @@ public class Categoria implements Serializable,EntidadeBase {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
 
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+    
+    
+    
 }
