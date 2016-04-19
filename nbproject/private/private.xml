@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/vinicius/Controladores%20de%20Versão/Git%20Projetos/CombatAirSoftEJB/src/java/br/com/combat/ejb/PessoaRemote.java</file>
             <file>file:/home/vinicius/Controladores%20de%20Versão/Git%20Projetos/CombatAirSoftEJB/src/java/br/com/combat/ejb/PessoaJuridicaRemote.java</file>
+            <file>file:/home/vinicius/Controladores%20de%20Versão/Git%20Projetos/CombatAirSoftEJB/src/java/br/com/combat/ejb/PessoaJuridicaBean.java</file>
+            <file>file:/home/vinicius/Controladores%20de%20Versão/Git%20Projetos/CombatAirSoftEJB/src/conf/persistence.xml</file>
         </group>
     </open-files>
 </project-private>

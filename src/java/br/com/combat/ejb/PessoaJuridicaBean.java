@@ -15,6 +15,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author vinicius
  */
+
 @Stateless
 public class PessoaJuridicaBean implements PessoaJuridicaRemote {
 
