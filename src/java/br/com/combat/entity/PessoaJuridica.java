@@ -6,6 +6,7 @@
 package br.com.combat.entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,9 +38,10 @@ public class PessoaJuridica implements Serializable,EntidadeBase {
     @Column(name = "razao_social", nullable = false)
     private String razaoSocial;
     private String cnpj;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Pessoa pessoa;
 
+    @Override
     public Long getId() {
         return id;
     }
