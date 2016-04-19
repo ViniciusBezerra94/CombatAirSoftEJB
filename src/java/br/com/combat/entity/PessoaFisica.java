@@ -27,7 +27,9 @@ import javax.persistence.TemporalType;
  */
 
 @NamedQueries({
-    @NamedQuery(name= "pessoaFisica.buscarPorCPF" ,query="select pf from PessoaFisica pf where pf.cpf like :numCPF")
+    @NamedQuery(name= "pessoaFisica.buscarPorCPF" ,query="select pf from PessoaFisica pf where pf.cpf like :numCPF"),
+    @NamedQuery(name= "pessoaFisica.buscarPorTodasAsPessoas" ,query="select pf from PessoaFisica pf")
+        
 })
 @SequenceGenerator(name = "PF_SEQ", sequenceName="PF_SEQ", allocationSize = 1, initialValue = 1)
 @Entity

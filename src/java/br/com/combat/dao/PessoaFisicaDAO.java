@@ -6,7 +6,9 @@
 package br.com.combat.dao;
 
 import br.com.combat.entity.PessoaFisica;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -14,8 +16,15 @@ import javax.persistence.EntityManager;
  */
 public class PessoaFisicaDAO extends GenericoDAO<PessoaFisica> {
 
+    private EntityManager etm;
     public PessoaFisicaDAO(EntityManager em) {
         super(em);
+        etm = em;
+    }
+    
+    public List<PessoaFisica> consultarPorTodasAsPessoas(){
+        Query q = etm.createNamedQuery("pessoaFisica.buscarPorTodasAsPessoas");
+        return q.getResultList();
     }
     
 }

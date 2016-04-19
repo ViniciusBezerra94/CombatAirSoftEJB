@@ -7,6 +7,7 @@ package br.com.combat.ejb;
 
 import br.com.combat.dao.PessoaFisicaDAO;
 import br.com.combat.entity.PessoaFisica;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -39,5 +40,13 @@ public class PessoaFisicaBean implements PessoaFisicaRemote {
         PessoaFisicaDAO dao = new PessoaFisicaDAO(em);
         dao.remover(PessoaFisica.class, id);
     }
+
+    @Override
+    public List<PessoaFisica> consultarTodasAsPessoas() {
+        PessoaFisicaDAO dao = new PessoaFisicaDAO(em);
+        return dao.consultarPorTodasAsPessoas();
+    
+    }
+    
     
 }

@@ -6,6 +6,7 @@
 package br.com.combat.ejb;
 
 import br.com.combat.entity.PessoaFisica;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -17,4 +18,6 @@ public interface PessoaFisicaRemote {
     public PessoaFisica salvar(PessoaFisica pf) throws Exception;
     public PessoaFisica consultarPorId(Long id);
     public void remover(Long id);
+    
+    public List<PessoaFisica> consultarTodasAsPessoas();
 }
