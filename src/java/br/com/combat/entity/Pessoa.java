@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -23,7 +25,9 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 @SequenceGenerator(name = "PES_SEQ" , sequenceName = "PES_SEQ", initialValue = 1, allocationSize = 1)
-
+@NamedQueries({
+    @NamedQuery(name = "pessoa.buscarPorEmail", query = "select p from Pessoa p where p.email like :email")
+})
 public class Pessoa implements Serializable,EntidadeBase {
     private static final long serialVersionUID = 546546L;
     @Id
@@ -47,6 +51,7 @@ public class Pessoa implements Serializable,EntidadeBase {
     @Column(nullable = false)
     private String senha;
     
+        
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
     private List<Telefone> telefones;
     

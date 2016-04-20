@@ -5,15 +5,15 @@
  */
 package br.com.combat.ejb;
 
-import br.com.combat.entity.PessoaJuridica;
 import javax.ejb.Remote;
 
-/*
+
+
+/**
+ *
  * @author vinicius
  */
 @Remote
-public interface PessoaJuridicaRemote {
-    public PessoaJuridica salvar(PessoaJuridica pj) throws Exception;
-    public PessoaJuridica consultarPorId(Long id);
-    public void remover(Long id);
+public interface AutenticadorRemote {
+    public void autenticarLogin(String email, String senha);
 }

@@ -7,6 +7,7 @@ package br.com.combat.dao;
 
 import br.com.combat.entity.Pessoa;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -14,8 +15,24 @@ import javax.persistence.EntityManager;
  */
 public class PessoaDAO extends GenericoDAO<Pessoa> {
 
+    private EntityManager etm;
     public PessoaDAO(EntityManager em) {
         super(em);
+        etm = em;
+    }
+    
+    public Pessoa buscarPorEmail(String email)
+    {
+        Pessoa p = new Pessoa();
+        try{
+        Query q = etm.createNamedQuery("pessoa.buscarPorEmail");
+        q.setParameter("email", email);
+        p = (Pessoa) q.getSingleResult();
+        }catch(Exception e)
+        {
+           
+        }
+        return p;
     }
     
 }
