@@ -15,5 +15,5 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface AutenticadorRemote {
-    public void autenticarLogin(String email, String senha);
+    public boolean autenticarLogin(String email, String senha);
 }

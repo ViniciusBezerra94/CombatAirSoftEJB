@@ -21,21 +21,15 @@ public class AutenticadorBean implements AutenticadorRemote {
     private EntityManager em;
     
     @Override
-    public void autenticarLogin(String email, String senha) {
+    public boolean autenticarLogin(String email, String senha) {
         PessoaDAO dao = new PessoaDAO(em);
         Pessoa p = new Pessoa();
         p = dao.buscarPorEmail(email);
         if(p == null){
-            System.out.println("Email não encontrado");
+            return false;
         }else{
-            if(!senha.equalsIgnoreCase(p.getSenha()))
-            {
-                System.out.println("Senha ou Email Incorretos");
-            }else
-            {
-                System.out.println("Login Realizado com Sucesso");                
-            }
-            
+            return senha.equalsIgnoreCase(p.getSenha());
+   
         }
     }
 }
