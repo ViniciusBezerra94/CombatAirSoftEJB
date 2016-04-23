@@ -10,12 +10,14 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 
@@ -26,7 +28,7 @@ import javax.persistence.SequenceGenerator;
 @Entity
 @SequenceGenerator(name = "PES_SEQ" , sequenceName = "PES_SEQ", initialValue = 1, allocationSize = 1)
 @NamedQueries({
-    @NamedQuery(name = "pessoa.buscarPorEmail", query = "select p from Pessoa p where p.email like :email")
+    @NamedQuery(name = "pessoa.buscarPorEmail", query = "select p from Pessoa p where p.email like :email and p.senha like :senha")
 })
 public class Pessoa implements Serializable,EntidadeBase {
     private static final long serialVersionUID = 546546L;
@@ -51,6 +53,11 @@ public class Pessoa implements Serializable,EntidadeBase {
     @Column(nullable = false)
     private String senha;
     
+    @OneToOne(mappedBy = "pessoa" , fetch = FetchType.EAGER)
+    private PessoaFisica pessoaFisica;
+    
+    @OneToOne(mappedBy = "pessoa", fetch = FetchType.EAGER)
+    private PessoaJuridica pessoaJuridica;
         
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
     private List<Telefone> telefones;
@@ -139,6 +146,25 @@ public class Pessoa implements Serializable,EntidadeBase {
     public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
     }
+
+  
+
+    public PessoaJuridica getPessoaJuridica() {
+        return pessoaJuridica;
+    }
+
+    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
+        this.pessoaJuridica = pessoaJuridica;
+    }
+
+    public PessoaFisica getPessoaFisica() {
+        return pessoaFisica;
+    }
+
+    public void setPessoaFisica(PessoaFisica pessoaFisica) {
+        this.pessoaFisica = pessoaFisica;
+    }
+    
     
     
 }
