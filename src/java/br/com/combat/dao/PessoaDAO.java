@@ -22,11 +22,11 @@ public class PessoaDAO extends GenericoDAO<Pessoa> {
         etm = em;
     }
     
-    public Pessoa buscarPorEmail(String email, String senha)
+    public Pessoa buscarPorEmailESenha(String email, String senha)
     {
         Pessoa p = new Pessoa();
         try{
-        Query q = etm.createNamedQuery("pessoa.buscarPorEmail");
+        Query q = etm.createNamedQuery("pessoa.buscarPorEmailESenha");
         q.setParameter("email", email);
         q.setParameter("senha",senha);
         p = (Pessoa) q.getSingleResult();

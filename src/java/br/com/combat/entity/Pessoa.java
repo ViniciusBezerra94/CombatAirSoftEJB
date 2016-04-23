@@ -28,7 +28,7 @@ import javax.persistence.SequenceGenerator;
 @Entity
 @SequenceGenerator(name = "PES_SEQ" , sequenceName = "PES_SEQ", initialValue = 1, allocationSize = 1)
 @NamedQueries({
-    @NamedQuery(name = "pessoa.buscarPorEmail", query = "select p from Pessoa p where p.email like :email and p.senha like :senha")
+    @NamedQuery(name = "pessoa.buscarPorEmailESenha", query = "select p from Pessoa p where p.email like :email and p.senha like :senha")
 })
 public class Pessoa implements Serializable,EntidadeBase {
     private static final long serialVersionUID = 546546L;

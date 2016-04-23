@@ -24,7 +24,7 @@ public class AutenticadorBean implements AutenticadorRemote {
     public boolean autenticarLogin(String email, String senha) {
         PessoaDAO dao = new PessoaDAO(em);
         Pessoa p = new Pessoa();
-        p = dao.buscarPorEmail(email,senha);
+        p = dao.buscarPorEmailESenha(email,senha);
         if(p.getPessoaFisica() != null)
         {
             System.out.println("vai que é tua: " + p.getPessoaFisica().getNome() );
