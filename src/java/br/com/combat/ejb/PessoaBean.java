@@ -39,5 +39,11 @@ public class PessoaBean implements PessoaRemote {
         PessoaDAO dao = new PessoaDAO(em);
         dao.remover(Pessoa.class, id);
     }
+
+    @Override
+    public Pessoa buscarPorEmailESenha(String email, String senha) {
+        PessoaDAO dao = new PessoaDAO(em);
+        return dao.buscarPorEmailESenha(email, senha);
+    }
     
 }

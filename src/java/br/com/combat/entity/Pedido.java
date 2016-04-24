@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
  * @author vinicius
  */
 /*@NamedQueries({
-    @NamedQuery(name="pedido.ConsultarItensCompradosPorData", 
+    @NamedQuery(name="pedido.ConsultarItensCompradosPorData",
             query = "select p.pessoa from Pedido p inner join p.itens i where p.dataHora = :data")
 })*/
 
@@ -38,24 +38,24 @@ public class Pedido implements Serializable,EntidadeBase {
     private static final long serialVersionUID = 4L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PED_SEQ")
-    private Long id;  
-    
+    private Long id;
+
     @Column(name = "DATA_HORA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataHora;
-    
+
     @Column(name = "QTD_ITENS")
     private int qtdItens;
 
 
     @Column(name = "VALOR")
     private double valor;
-    
+
     private String nf;
-    
+
     @ManyToOne
     private Pessoa pessoa;
-    
+
     @OneToMany(mappedBy = "pedido")
     private List<Item> itens;
 
@@ -115,7 +115,7 @@ public class Pedido implements Serializable,EntidadeBase {
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
-    
-    
-    
+
+
+
 }

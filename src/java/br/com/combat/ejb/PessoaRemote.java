@@ -17,4 +17,6 @@ public interface PessoaRemote {
     public Pessoa salvar(Pessoa p) throws Exception;
     public Pessoa consultarPorId(Long id);
     public void remover(Long id);
+    public Pessoa buscarPorEmailESenha(String email, String senha);
+    
 }
