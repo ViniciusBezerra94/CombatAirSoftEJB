@@ -49,6 +49,8 @@ public class Produto implements Serializable,EntidadeBase {
     @OneToMany(mappedBy = "produto")
     private List<Item> itens;
     
+    @OneToMany(mappedBy = "produto")
+    private List<Imagem> imagens;
     
     @Override
     public Long getId() {
@@ -98,6 +100,23 @@ public class Produto implements Serializable,EntidadeBase {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    public List<Item> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
+
+    public List<Imagem> getImagens() {
+        return imagens;
+    }
+
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
+    }
+    
     
     
 }

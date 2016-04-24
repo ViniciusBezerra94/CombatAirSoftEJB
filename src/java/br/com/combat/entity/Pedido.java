@@ -47,8 +47,10 @@ public class Pedido implements Serializable,EntidadeBase {
     @Column(name = "QTD_ITENS")
     private int qtdItens;
 
-
-    @Column(name = "VALOR")
+    @Column(name = "VALOR_FRETE")
+    private double valorFrete;
+    
+    @Column(name = "VALOR_TOTAL")
     private double valor;
 
     private String nf;
@@ -116,6 +118,15 @@ public class Pedido implements Serializable,EntidadeBase {
         this.itens = itens;
     }
 
+    public double getValorFrete() {
+        return valorFrete;
+    }
+
+    public void setValorFrete(double valorFrete) {
+        this.valorFrete = valorFrete;
+    }
+
+    
 
 
 }

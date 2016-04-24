@@ -28,6 +28,7 @@ public class Pagamento implements Serializable,EntidadeBase {
     private Long id;  
     
     private String status;
+    
     @Column(name = "FORMA_PAGAMENTO")
     private String formaDePagamento;
     

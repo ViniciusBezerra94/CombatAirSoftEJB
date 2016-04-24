@@ -6,7 +6,6 @@
 package br.com.combat.entity;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,24 +18,19 @@ import javax.persistence.SequenceGenerator;
  * @author vinicius
  */
 @Entity
-@SequenceGenerator(name="ITEM_SEQ" , sequenceName="ITEM_SEQ", initialValue = 1 , allocationSize = 1)
-public class Item implements Serializable,EntidadeBase {
-    private static final long serialVersionUID = 2L;
+@SequenceGenerator(name = "IMG_SEQ", sequenceName="IMG_SEQ", allocationSize = 1, initialValue = 1)
+public class Imagem implements Serializable,EntidadeBase {
+    private static final long serialVersionUID = 456789123L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE , generator = "ITEM_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="IMG_SEQ")
     private Long id;
     
-    private int quantidade;
+    private String nome;
     
-    
-    @ManyToOne
-    private Pedido pedido;
+    private String foto;
     
     @ManyToOne
     private Produto produto;
-    
-    @Column(name = "VALOR_UNI")
-    private int valorUni;
 
     @Override
     public Long getId() {
@@ -47,20 +41,20 @@ public class Item implements Serializable,EntidadeBase {
         this.id = id;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public String getNome() {
+        return nome;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Pedido getPedido() {
-        return pedido;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Produto getProduto() {
@@ -70,14 +64,7 @@ public class Item implements Serializable,EntidadeBase {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
-
-    public int getValorUni() {
-        return valorUni;
-    }
-
-    public void setValorUni(int valorUni) {
-        this.valorUni = valorUni;
-    }
+    
     
     
 }
