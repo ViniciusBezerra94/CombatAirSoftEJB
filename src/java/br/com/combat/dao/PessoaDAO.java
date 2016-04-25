@@ -6,7 +6,7 @@
 package br.com.combat.dao;
 
 import br.com.combat.entity.Pessoa;
-import static br.com.combat.entity.Pessoa_.senha;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 

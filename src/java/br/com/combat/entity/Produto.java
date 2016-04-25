@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,8 +25,9 @@ import javax.persistence.SequenceGenerator;
  */
 @NamedQueries({
     @NamedQuery(name="produto.buscarPorCategoria" , query = "select p from Produto p where p.categoria.nome like :nomeCategoria"),
-    @NamedQuery(name="produto.buscarPorUltimosProdutosEPorCategoria" ,query= "select p from Produto p where p.categoria.nome like :nomeCategoria ORDER BY p.id DESC")
-
+    @NamedQuery(name="produto.buscarPorUltimosProdutosEPorCategoria" ,query= "select p from Produto p where p.categoria.nome like :nomeCategoria ORDER BY p.id DESC"),
+    @NamedQuery(name="produto.buscarProduto" ,query= "select p from Produto p")
+    
 })
 
 
@@ -49,7 +51,7 @@ public class Produto implements Serializable,EntidadeBase {
     @OneToMany(mappedBy = "produto")
     private List<Item> itens;
     
-    @OneToMany(mappedBy = "produto")
+    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER)
     private List<Imagem> imagens;
     
     @Override
