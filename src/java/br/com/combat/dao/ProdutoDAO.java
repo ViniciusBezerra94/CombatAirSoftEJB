@@ -28,4 +28,10 @@ public class ProdutoDAO extends GenericoDAO<Produto> {
         return q.getResultList();
     }
     
+    public List<Produto> buscarPorUltimosProdutosEPorCategoria(String categoria){
+        Query q = etm.createNamedQuery("produto.buscarPorUltimosProdutosEPorCategoria");
+        q.setParameter("nomeCategoria", categoria);
+        q.setMaxResults(4);
+        return q.getResultList();
+    }
 }

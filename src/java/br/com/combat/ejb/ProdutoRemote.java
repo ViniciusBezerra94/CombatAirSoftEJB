@@ -19,4 +19,5 @@ public interface ProdutoRemote {
     public Produto consultarPorId(Long id);
     public void remover(Long id);
     public List<Produto> buscarProduto();
+    public List<Produto> buscarPorUltimosProdutosEPorCategoria(String categoria);
 }
