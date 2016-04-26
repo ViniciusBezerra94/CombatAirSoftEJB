@@ -34,4 +34,11 @@ public class ProdutoDAO extends GenericoDAO<Produto> {
         q.setMaxResults(4);
         return q.getResultList();
     }
+    
+    public List<Produto> buscarPorCategoria(String categoria)
+    {
+        Query q = etm.createNamedQuery("produto.buscarPorCategoria");
+        q.setParameter("nomeCategoria", categoria);
+        return q.getResultList();
+    }
 }

@@ -52,5 +52,13 @@ public class ProdutoBean implements ProdutoRemote {
         ProdutoDAO dao = new ProdutoDAO(em);
         return dao.buscarPorUltimosProdutosEPorCategoria(categoria);
     }
+
+    @Override
+    public List<Produto> buscarPorCategoria(String categoria) {
+        ProdutoDAO dao = new ProdutoDAO(em);
+        return dao.buscarPorCategoria(categoria);
+    }
+    
+    
     
 }
