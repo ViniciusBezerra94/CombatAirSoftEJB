@@ -36,7 +36,7 @@ public class Item implements Serializable,EntidadeBase {
     private Produto produto;
     
     @Column(name = "VALOR_UNI")
-    private int valorUni;
+    private double valorUni;
 
     @Override
     public Long getId() {
@@ -71,11 +71,11 @@ public class Item implements Serializable,EntidadeBase {
         this.produto = produto;
     }
 
-    public int getValorUni() {
+    public double getValorUni() {
         return valorUni;
     }
 
-    public void setValorUni(int valorUni) {
+    public void setValorUni(double valorUni) {
         this.valorUni = valorUni;
     }
     
