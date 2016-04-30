@@ -52,13 +52,8 @@ public class Pessoa implements Serializable,EntidadeBase {
     private String email;
     @Column(nullable = false)
     private String senha;
+            
     
-    @OneToOne(mappedBy = "pessoa" , fetch = FetchType.EAGER)
-    private PessoaFisica pessoaFisica;
-    
-    @OneToOne(mappedBy = "pessoa", fetch = FetchType.EAGER)
-    private PessoaJuridica pessoaJuridica;
-        
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
     private List<Telefone> telefones;
     
@@ -148,23 +143,6 @@ public class Pessoa implements Serializable,EntidadeBase {
     }
 
   
-
-    public PessoaJuridica getPessoaJuridica() {
-        return pessoaJuridica;
-    }
-
-    public void setPessoaJuridica(PessoaJuridica pessoaJuridica) {
-        this.pessoaJuridica = pessoaJuridica;
-    }
-
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
-    }
-
-    public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
-    }
-
     public List<Pedido> getPedidos() {
         return pedidos;
     }

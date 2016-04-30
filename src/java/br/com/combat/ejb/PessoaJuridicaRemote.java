@@ -16,4 +16,5 @@ public interface PessoaJuridicaRemote {
     public PessoaJuridica salvar(PessoaJuridica pj) throws Exception;
     public PessoaJuridica consultarPorId(Long id);
     public void remover(Long id);
+    public PessoaJuridica pesquisarPorIdPessoa(Long id);
 }

@@ -47,6 +47,12 @@ public class PessoaFisicaBean implements PessoaFisicaRemote {
         return dao.consultarPorTodasAsPessoas();
     
     }
+
+    @Override
+    public PessoaFisica pesquisarPorIdPessoa(Long id) {
+        PessoaFisicaDAO dao = new PessoaFisicaDAO(em);
+        return dao.pesquisarPorIdPessoa(id);
+    }
     
     
 }

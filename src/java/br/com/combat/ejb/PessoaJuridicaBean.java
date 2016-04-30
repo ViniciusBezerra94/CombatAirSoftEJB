@@ -39,5 +39,11 @@ public class PessoaJuridicaBean implements PessoaJuridicaRemote {
         PessoaJuridicaDAO dao = new PessoaJuridicaDAO(em);
         dao.remover(PessoaJuridica.class, id);
     }
+
+    @Override
+    public PessoaJuridica pesquisarPorIdPessoa(Long id) {
+        PessoaJuridicaDAO dao = new PessoaJuridicaDAO(em);
+        return dao.pesquisarPorIdPessoa(id);
+    }
     
 }

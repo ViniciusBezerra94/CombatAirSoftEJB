@@ -20,4 +20,5 @@ public interface PessoaFisicaRemote {
     public void remover(Long id);
     
     public List<PessoaFisica> consultarTodasAsPessoas();
+    public PessoaFisica pesquisarPorIdPessoa(Long id);
 }
