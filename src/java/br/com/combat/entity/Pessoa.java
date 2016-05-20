@@ -58,7 +58,7 @@ public class Pessoa implements Serializable,EntidadeBase {
     private List<Telefone> telefones;
     
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa", fetch = FetchType.EAGER)
     private List<Pedido> pedidos;
     
     @Override

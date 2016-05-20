@@ -6,6 +6,7 @@
 package br.com.combat.ejb;
 
 import br.com.combat.entity.Pedido;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -17,4 +18,5 @@ public interface PedidoRemote {
     public Pedido salvar(Pedido p) throws Exception;
     public Pedido consultarPorId(Long id);
     public void remover(Long id);
+    public List<Pedido> consultarItensCompradosPorPessoa(Long id);
 }

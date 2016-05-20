@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,10 +27,10 @@ import javax.persistence.TemporalType;
  *
  * @author vinicius
  */
-/*@NamedQueries({
-    @NamedQuery(name="pedido.ConsultarItensCompradosPorData",
-            query = "select p.pessoa from Pedido p inner join p.itens i where p.dataHora = :data")
-})*/
+@NamedQueries({
+    @NamedQuery(name="pedido.ConsultarItensCompradosPorPessoa",
+            query = "select p from Pedido p where p.pessoa.id = :idPessoa order by p.id DESC")
+})
 
 @Entity
 
@@ -59,7 +60,7 @@ public class Pedido implements Serializable,EntidadeBase {
     @ManyToOne
     private Pessoa pessoa;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Item> itens;
 
     @Override

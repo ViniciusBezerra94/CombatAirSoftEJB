@@ -2,6 +2,7 @@ package br.com.combat.ejb;
 
 import br.com.combat.dao.PedidoDAO;
 import br.com.combat.entity.Pedido;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,6 +37,12 @@ public class PedidoBean implements PedidoRemote{
     public void remover(Long id) {
         PedidoDAO dao = new PedidoDAO(em);
         dao.remover(Pedido.class, id);
+    }
+
+    @Override
+    public List<Pedido> consultarItensCompradosPorPessoa(Long id) {
+        PedidoDAO dao = new PedidoDAO(em);
+        return dao.consultarItensCompradosPorPessoa(id);
     }
 
 }
