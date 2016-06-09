@@ -54,7 +54,7 @@ public class Pessoa implements Serializable,EntidadeBase {
     private String senha;
             
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoa", fetch = FetchType.EAGER)
     private List<Telefone> telefones;
     
     
